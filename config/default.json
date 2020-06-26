@@ -1,0 +1,10 @@
+{
+    "server": {
+        "baseContext": "http://development.com:3333/api",
+        "port": "3333",
+        "profile": "development",
+        "uiContext": "http://development.com"
+    },
+    "docker": {
+    }
+}

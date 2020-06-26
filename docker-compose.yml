@@ -1,0 +1,25 @@
+version: "3"
+services:
+  app:
+    container_name: ${COMPOSE_PROJECT_NAME}_app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: 'poc:${COMPOSE_PROJECT_NAME}'
+    ports:
+      - ${EXPOSED_PORT}:8080
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    networks:
+      shared_network:
+        aliases:
+          - app1
+    restart: always
+    command: node index.js
+
+networks:
+  shared_network:
+    external:
+      name: shared_network
