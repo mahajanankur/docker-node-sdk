@@ -23,5 +23,41 @@ const getTopProcessInContainer = async (containerId) => {
     }
 }
 
+const stopContainer = async (containerId) => {
+    let response = null;
+    let container = docker.getContainer(containerId);
+    try {
+        response = await container.stop();
+        console.info("Dockerode response: ", response);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const startContainer = async (containerId) => {
+    let response = null;
+    let container = docker.getContainer(containerId);
+    try {
+        response = await container.start();
+        console.info("Dockerode response: ", response);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const stats = async (containerId) => {
+    let response = null;
+    let container = docker.getContainer(containerId);
+    try {
+        response = await container.stats();
+        console.info("Dockerode response: ", response);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 // inspectContainer('portainer');
-getTopProcessInContainer('portainer');
+// stopContainer('portainer');
+// startContainer('portainer');
+stats('portainer');
+// getTopProcessInContainer('portainer');
