@@ -1,5 +1,4 @@
 # alpine base image
-# FROM cr.searchunify.com/base-images/node:latest
 FROM node:10.20.1-alpine
 # RUN apk add g++ make python
 RUN apk add --no-cache python make g++
